@@ -32,764 +32,299 @@
             overflow-x: hidden;
         }
 
-        /* ===== UTILITY ===== */
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
 
         /* ===== NAV ===== */
         .site-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 200;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             background: rgba(247, 243, 237, 0.0);
             backdrop-filter: blur(0px);
             transition: all 0.4s;
             padding: 1.2rem 0;
         }
-
         .site-nav.scrolled {
             background: rgba(247, 243, 237, 0.97);
             backdrop-filter: blur(20px);
             box-shadow: 0 2px 30px rgba(27, 22, 16, 0.06);
             padding: 0.8rem 0;
         }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .nav-brand {
-            font-family: 'Fraunces', serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.4s;
+            font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem;
+            color: var(--white); text-decoration: none; transition: color 0.4s;
         }
-
         .site-nav.scrolled .nav-brand { color: var(--ink); }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a {
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            transition: all 0.3s;
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: rgba(255,255,255,0.85);
+            text-decoration: none; transition: all 0.3s;
         }
-
         .site-nav.scrolled .nav-links a { color: var(--ink-light); }
         .nav-links a:hover { color: var(--terracotta); }
-
         .nav-cta {
-            background: var(--terracotta);
-            color: var(--white) !important;
-            padding: 0.55rem 1.4rem;
-            border-radius: 50px;
-            font-weight: 700 !important;
-            letter-spacing: 0.05em !important;
+            background: var(--terracotta); color: var(--white) !important;
+            padding: 0.55rem 1.4rem; border-radius: 50px;
+            font-weight: 700 !important; letter-spacing: 0.05em !important;
         }
-
         .nav-cta:hover { background: var(--terracotta-dark); color: var(--white) !important; }
 
-        /* ===== HERO FULLSCREEN ===== */
+        /* ===== HERO ===== */
         .hero-full {
-            position: relative;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: flex-end;
-            overflow: hidden;
+            position: relative; height: 100vh; min-height: 700px;
+            display: flex; align-items: flex-end; overflow: hidden;
         }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
         .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background: linear-gradient(180deg, rgba(27,22,16,0.15) 0%, rgba(27,22,16,0.7) 100%);
         }
-
         .hero-content-full {
-            position: relative;
-            z-index: 1;
-            padding: 4rem;
-            max-width: 700px;
+            position: relative; z-index: 1; padding: 4rem; max-width: 700px;
             animation: heroIn 1s ease-out;
         }
-
         @keyframes heroIn {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .hero-sub {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 0.75rem;
+            font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+            font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem;
         }
-
         .hero-title {
-            font-family: 'Fraunces', serif;
-            font-weight: 900;
-            font-size: clamp(3.5rem, 7vw, 6rem);
-            color: var(--white);
-            line-height: 1;
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.02em;
+            font-family: 'Fraunces', serif; font-weight: 900;
+            font-size: clamp(3.5rem, 7vw, 6rem); color: var(--white);
+            line-height: 1; margin-bottom: 1.2rem; letter-spacing: -0.02em;
         }
-
         .hero-desc {
-            font-size: 1.05rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            max-width: 500px;
+            font-size: 1.05rem; font-weight: 400; color: rgba(255,255,255,0.75);
+            line-height: 1.6; margin-bottom: 1rem; max-width: 500px;
         }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-hero {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .btn-fill {
-            background: var(--terracotta);
-            color: var(--white);
-        }
-
-        .btn-fill:hover {
-            background: var(--white);
-            color: var(--ink);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: rgba(255,255,255,0.1);
-            color: var(--white);
-            border: 1.5px solid rgba(255,255,255,0.35);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.6);
-        }
-
-        /* ===== IMAGE GALLERY STRIP ===== */
-        .gallery-strip {
-            padding: 5rem 0;
-            overflow: hidden;
-            background: var(--cream);
-        }
-
-        .gallery-label {
-            text-align: center;
-            font-family: 'Fraunces', serif;
+        .hero-hours {
+            font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-bottom: 2rem;
             font-style: italic;
-            font-size: 0.9rem;
-            color: var(--muted);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 2.5rem;
         }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-hero {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700;
+            font-size: 0.85rem; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-fill { background: var(--terracotta); color: var(--white); }
+        .btn-fill:hover { background: var(--white); color: var(--ink); transform: translateY(-2px); }
+        .btn-outline {
+            background: rgba(255,255,255,0.1); color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.35); backdrop-filter: blur(10px);
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); }
 
+        /* ===== GALLERY STRIP ===== */
+        .gallery-strip { padding: 5rem 0; overflow: hidden; background: var(--cream); }
+        .gallery-label {
+            text-align: center; font-family: 'Fraunces', serif; font-style: italic;
+            font-size: 0.9rem; color: var(--muted); letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 2.5rem;
+        }
         .gallery-marquee {
-            display: flex;
-            gap: 1.2rem;
-            animation: marquee 40s linear infinite;
-            width: max-content;
+            display: flex; gap: 1.2rem; animation: marquee 40s linear infinite; width: max-content;
         }
-
         .gallery-marquee:hover { animation-play-state: paused; }
-
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-
         .gallery-card {
-            flex: 0 0 340px;
-            height: 420px;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
+            flex: 0 0 340px; height: 420px; border-radius: 16px;
+            overflow: hidden; position: relative; cursor: pointer; transition: transform 0.3s;
         }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
+        .gallery-card:hover { transform: scale(1.03); }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-card:hover img { transform: scale(1.08); }
-
         .gallery-card .gc-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(180deg, transparent 50%, rgba(27,22,16,0.8) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 1.5rem; opacity: 0; transition: opacity 0.3s;
         }
-
         .gallery-card:hover .gc-overlay { opacity: 1; }
-
-        .gc-overlay h3 {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--white);
-        }
-
-        .gc-overlay span {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.7);
-        }
+        .gc-overlay h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; color: var(--white); }
+        .gc-overlay span { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1rem; color: rgba(255,255,255,0.7); }
 
         /* ===== FEATURED GRID ===== */
-        .featured-section {
-            padding: 5rem 2rem;
-        }
-
+        .featured-section { padding: 5rem 2rem; }
         .section-label {
-            text-align: center;
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 0.85rem;
-            color: var(--terracotta);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
+            text-align: center; font-family: 'Fraunces', serif; font-style: italic;
+            font-size: 0.85rem; color: var(--terracotta); letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 0.75rem;
         }
-
         .section-title {
-            text-align: center;
-            font-family: 'Fraunces', serif;
-            font-weight: 900;
-            font-size: clamp(2.2rem, 4vw, 3.2rem);
-            color: var(--ink);
-            margin-bottom: 3.5rem;
-            letter-spacing: -0.01em;
+            text-align: center; font-family: 'Fraunces', serif; font-weight: 900;
+            font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--ink);
+            margin-bottom: 3.5rem; letter-spacing: -0.01em;
         }
-
         .featured-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 400px 400px;
-            gap: 1.2rem;
+            max-width: 1400px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 400px 400px; gap: 1.2rem;
         }
-
-        .feat-card {
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .feat-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
+        .feat-card { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; }
+        .feat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .feat-card:hover img { transform: scale(1.05); }
-
         .feat-card .fc-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem;
             background: linear-gradient(transparent, rgba(27,22,16,0.85));
         }
-
         .fc-info .fc-tag {
-            display: inline-block;
-            background: var(--terracotta);
-            color: var(--white);
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.25rem 0.7rem;
-            border-radius: 4px;
-            margin-bottom: 0.5rem;
+            display: inline-block; background: var(--terracotta); color: var(--white);
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 4px; margin-bottom: 0.5rem;
         }
-
-        .fc-info h3 {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--white);
-            margin-bottom: 0.2rem;
-        }
-
-        .fc-info p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.65);
-            line-height: 1.4;
-        }
-
+        .fc-info h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; color: var(--white); margin-bottom: 0.2rem; }
+        .fc-info p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.4; }
         .fc-info .fc-price {
-            position: absolute;
-            top: -2.5rem;
-            right: 1.5rem;
-            background: var(--white);
-            color: var(--ink);
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: absolute; top: -2.5rem; right: 1.5rem;
+            background: var(--white); color: var(--ink); font-family: 'Fraunces', serif;
+            font-weight: 700; font-size: 1.1rem; padding: 0.4rem 1rem;
+            border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
-
         .feat-card.wide { grid-column: span 2; }
 
-        /* ===== FULL WIDTH IMAGE BREAK ===== */
-        .image-break {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-        }
-
-        .image-break img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        /* ===== IMAGE BREAK ===== */
+        .image-break { position: relative; height: 500px; overflow: hidden; }
+        .image-break img { width: 100%; height: 100%; object-fit: cover; }
         .image-break .ib-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(27, 22, 16, 0.55);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
+            position: absolute; inset: 0; background: rgba(27, 22, 16, 0.55);
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; padding: 2rem;
         }
-
         .ib-overlay h2 {
-            font-family: 'Fraunces', serif;
-            font-weight: 900;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--white);
-            margin-bottom: 0.75rem;
+            font-family: 'Fraunces', serif; font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 0.75rem;
         }
-
         .ib-overlay p {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.7);
-            max-width: 550px;
+            font-family: 'Fraunces', serif; font-style: italic; font-size: 1.15rem;
+            color: rgba(255,255,255,0.7); max-width: 550px;
         }
 
-        /* ===== BREAKFAST SHOWCASE ===== */
-        .showcase-section {
-            padding: 5rem 2rem;
-        }
-
+        /* ===== SHOWCASE ===== */
+        .showcase-section { padding: 5rem 2rem; }
         .showcase-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
+            max-width: 1400px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
         }
-
-        .showcase-card {
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            height: 380px;
-        }
-
-        .showcase-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
+        .showcase-card { border-radius: 16px; overflow: hidden; position: relative; height: 380px; }
+        .showcase-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .showcase-card:hover img { transform: scale(1.04); }
-
         .showcase-card .sc-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem;
             background: linear-gradient(transparent, rgba(27,22,16,0.85));
         }
-
-        .sc-info h3 {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--white);
-        }
-
-        .sc-info p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-            margin-top: 0.25rem;
-        }
-
+        .sc-info h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; color: var(--white); }
+        .sc-info p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
         .sc-info .sc-price {
-            position: absolute;
-            top: -2.2rem;
-            right: 1.5rem;
-            background: var(--white);
-            color: var(--ink);
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.35rem 0.9rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: absolute; top: -2.2rem; right: 1.5rem;
+            background: var(--white); color: var(--ink); font-family: 'Fraunces', serif;
+            font-weight: 700; font-size: 1rem; padding: 0.35rem 0.9rem;
+            border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         /* ===== FULL MENU ===== */
-        .menu-section {
-            padding: 5rem 2rem;
-            background: var(--white);
-        }
-
+        .menu-section { padding: 5rem 2rem; background: var(--white); }
         .menu-tabs-bar {
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-            display: flex;
-            justify-content: center;
-            gap: 0.4rem;
-            flex-wrap: wrap;
-            background: var(--bg);
-            border-radius: 60px;
-            padding: 0.35rem;
+            max-width: 1200px; margin: 0 auto 3rem;
+            display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap;
+            background: var(--bg); border-radius: 60px; padding: 0.35rem;
         }
-
         .m-tab {
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            border: none;
-            background: transparent;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 0.03em;
-            color: var(--muted);
-            cursor: pointer;
-            transition: all 0.25s;
+            padding: 0.6rem 1.5rem; border-radius: 50px; border: none;
+            background: transparent; font-family: 'Outfit', sans-serif;
+            font-weight: 600; font-size: 0.8rem; letter-spacing: 0.03em;
+            color: var(--muted); cursor: pointer; transition: all 0.25s;
         }
-
         .m-tab:hover { color: var(--ink); }
-
-        .m-tab.active {
-            background: var(--ink);
-            color: var(--white);
-            box-shadow: 0 4px 12px rgba(27,22,16,0.15);
-        }
-
+        .m-tab.active { background: var(--ink); color: var(--white); box-shadow: 0 4px 12px rgba(27,22,16,0.15); }
         .m-panel { display: none; max-width: 1200px; margin: 0 auto; }
         .m-panel.active { display: block; animation: fadePanel 0.35s ease; }
-
         @keyframes fadePanel {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .m-subheading {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--ink);
-            margin-top: 2.5rem;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--terracotta);
-            display: inline-block;
+            font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem;
+            color: var(--ink); margin-top: 2.5rem; margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem; border-bottom: 2px solid var(--terracotta); display: inline-block;
         }
-
         .m-subheading:first-child { margin-top: 0; }
-
-        .m-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            margin-top: 1rem;
-        }
-
+        .m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 1rem; }
         .m-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 1rem 1.2rem;
-            border-bottom: 1px solid var(--warm-gray);
-            gap: 1rem;
-            transition: background 0.2s;
+            display: flex; justify-content: space-between; align-items: flex-start;
+            padding: 1rem 1.2rem; border-bottom: 1px solid var(--warm-gray);
+            gap: 1rem; transition: background 0.2s;
         }
-
         .m-item:hover { background: rgba(192, 89, 58, 0.03); }
+        .m-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.2rem; }
+        .m-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+        .m-price { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: var(--terracotta); white-space: nowrap; }
 
-        .m-name {
-            font-weight: 600;
-            font-size: 0.92rem;
-            color: var(--ink);
-            margin-bottom: 0.2rem;
-        }
-
-        .m-desc {
-            font-size: 0.82rem;
-            color: var(--muted);
-            line-height: 1.45;
-        }
-
-        .m-price {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--terracotta);
-            white-space: nowrap;
-        }
-
-        /* ===== SIDES IMAGE ROW ===== */
-        .sides-visual {
-            padding: 5rem 2rem;
-            background: var(--cream);
-        }
-
+        /* ===== SIDES VISUAL ===== */
+        .sides-visual { padding: 5rem 2rem; background: var(--cream); }
         .sides-visual-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.2rem;
+            max-width: 1400px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
         }
-
-        .sv-card {
-            border-radius: 14px;
-            overflow: hidden;
-            position: relative;
-            height: 300px;
-        }
-
-        .sv-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
+        .sv-card { border-radius: 14px; overflow: hidden; position: relative; height: 300px; }
+        .sv-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .sv-card:hover img { transform: scale(1.06); }
-
         .sv-card .sv-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.2rem;
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 1.2rem;
             background: linear-gradient(transparent, rgba(27,22,16,0.8));
         }
+        .sv-info h4 { font-family: 'Fraunces', serif; font-weight: 700; color: var(--white); font-size: 1rem; }
+        .sv-info span { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
 
-        .sv-info h4 {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            color: var(--white);
-            font-size: 1rem;
-        }
-
-        .sv-info span {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.65);
-        }
-
-        /* ===== ABOUT / CTA ===== */
-        .about-cta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 550px;
-        }
-
-        .about-image {
-            overflow: hidden;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        /* ===== ABOUT CTA ===== */
+        .about-cta { display: grid; grid-template-columns: 1fr 1fr; min-height: 550px; }
+        .about-image { overflow: hidden; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
         .about-content {
-            background: var(--ink);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem 5rem;
+            background: var(--ink); display: flex; flex-direction: column;
+            justify-content: center; padding: 4rem 5rem;
         }
-
         .about-content .ac-label {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 0.85rem;
-            color: var(--terracotta);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
+            font-family: 'Fraunces', serif; font-style: italic; font-size: 0.85rem;
+            color: var(--terracotta); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;
         }
-
         .about-content h2 {
-            font-family: 'Fraunces', serif;
-            font-weight: 900;
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            color: var(--white);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
+            font-family: 'Fraunces', serif; font-weight: 900;
+            font-size: clamp(2rem, 3vw, 2.8rem); color: var(--white);
+            line-height: 1.15; margin-bottom: 1.5rem;
         }
-
-        .about-content p {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        .info-pills {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .info-pill {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.8);
-        }
-
+        .about-content p { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 2rem; }
+        .info-pills { display: flex; flex-direction: column; gap: 0.8rem; }
+        .info-pill { display: flex; align-items: center; gap: 0.8rem; font-weight: 500; font-size: 0.95rem; color: rgba(255,255,255,0.8); }
         .info-pill .pill-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.08); display: flex; align-items: center;
+            justify-content: center; font-size: 1rem; flex-shrink: 0;
         }
-
         .about-content .btn-cta-footer {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            background: var(--terracotta);
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            transition: all 0.3s;
-            align-self: flex-start;
+            display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem;
+            background: var(--terracotta); color: var(--white); text-decoration: none;
+            font-weight: 700; font-size: 0.85rem; padding: 0.85rem 2rem;
+            border-radius: 50px; transition: all 0.3s; align-self: flex-start;
         }
-
-        .about-content .btn-cta-footer:hover {
-            background: var(--white);
-            color: var(--ink);
-        }
+        .about-content .btn-cta-footer:hover { background: var(--white); color: var(--ink); }
 
         /* ===== FOOTER ===== */
-        .site-footer {
-            background: #0E0B08;
-            padding: 3rem 2rem 1.5rem;
-            text-align: center;
-        }
-
-        .footer-brand {
-            font-family: 'Fraunces', serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-addr {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-phone {
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--terracotta);
-            text-decoration: none;
-        }
-
+        .site-footer { background: #0E0B08; padding: 3rem 2rem 1.5rem; text-align: center; }
+        .footer-brand { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; }
+        .footer-addr { font-size: 0.9rem; color: rgba(255,255,255,0.4); margin-bottom: 0.3rem; }
+        .footer-hours { font-size: 0.85rem; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; font-style: italic; }
+        .footer-phone { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.5rem; color: var(--terracotta); text-decoration: none; }
         .footer-phone:hover { color: var(--white); }
-
-        .footer-copy {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.2);
-        }
+        .footer-copy { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+        .footer-boars { margin-top: 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.25); font-style: italic; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1000px) {
@@ -802,7 +337,6 @@
             .m-grid { grid-template-columns: 1fr; }
             .sides-visual-grid { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 700px) {
             .featured-grid { grid-template-columns: 1fr; }
             .feat-card.wide { grid-column: span 1; }
@@ -838,7 +372,8 @@
         <div class="hero-content-full">
             <div class="hero-sub">1915 Brookside Rd, Macungie PA</div>
             <h1 class="hero-title">Brookside Deli</h1>
-            <p class="hero-desc">Fresh sandwiches, hearty breakfasts, and homemade sides crafted daily in the heart of Macungie, Pennsylvania.</p>
+            <p class="hero-desc">Fresh sandwiches, hearty breakfasts, and homemade sides crafted daily in the heart of Macungie, Pennsylvania. Proudly featuring Boar's Head meats and cheeses.</p>
+            <p class="hero-hours">Mon &ndash; Fri: 6am &ndash; 3pm &nbsp;&bull;&nbsp; Saturday: 6:30am &ndash; 3pm</p>
             <div class="hero-actions">
                 <a href="tel:6103511392" class="btn-hero btn-fill">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.876.37 1.74.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.07.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -859,17 +394,17 @@
             <div class="gallery-card"><img src="images/IMG_3808.jpeg" alt="Chicken Salad"><div class="gc-overlay"><h3>Chicken Salad w/ Cranberries</h3><span>$8.25</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3758.jpeg" alt="Chop Cheese"><div class="gc-overlay"><h3>Chop Cheese</h3><span>$9.99</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3824.jpeg" alt="Club Sandwich"><div class="gc-overlay"><h3>Club Sandwich</h3><span>$11.50</span></div></div>
-            <div class="gallery-card"><img src="images/IMG_3811.jpeg" alt="Bagel Cream Cheese"><div class="gc-overlay"><h3>Bagel w/ Cream Cheese</h3><span>$2.50</span></div></div>
-            <div class="gallery-card"><img src="images/IMG_3821.jpeg" alt="Rachel"><div class="gc-overlay"><h3>Cold Rachel</h3><span>$9.75</span></div></div>
-            <!-- duplicate set for seamless loop -->
+            <div class="gallery-card"><img src="images/IMG_3811.jpeg" alt="Bagel Cream Cheese"><div class="gc-overlay"><h3>Bagel w/ Cream Cheese</h3><span>$4.00</span></div></div>
+            <div class="gallery-card"><img src="images/IMG_3821.jpeg" alt="Rachel"><div class="gc-overlay"><h3>Rachel</h3><span>$9.75</span></div></div>
+            <!-- duplicate for seamless loop -->
             <div class="gallery-card"><img src="images/IMG_3762.jpeg" alt="Pork Roll Egg Cheese"><div class="gc-overlay"><h3>Pork Roll Egg &amp; Cheese</h3><span>$7.00</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3760.jpeg" alt="Reuben"><div class="gc-overlay"><h3>Reuben</h3><span>$9.75</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3823.jpeg" alt="BLT"><div class="gc-overlay"><h3>Classic BLT</h3><span>$7.00</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3808.jpeg" alt="Chicken Salad"><div class="gc-overlay"><h3>Chicken Salad w/ Cranberries</h3><span>$8.25</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3758.jpeg" alt="Chop Cheese"><div class="gc-overlay"><h3>Chop Cheese</h3><span>$9.99</span></div></div>
             <div class="gallery-card"><img src="images/IMG_3824.jpeg" alt="Club Sandwich"><div class="gc-overlay"><h3>Club Sandwich</h3><span>$11.50</span></div></div>
-            <div class="gallery-card"><img src="images/IMG_3811.jpeg" alt="Bagel Cream Cheese"><div class="gc-overlay"><h3>Bagel w/ Cream Cheese</h3><span>$2.50</span></div></div>
-            <div class="gallery-card"><img src="images/IMG_3821.jpeg" alt="Rachel"><div class="gc-overlay"><h3>Cold Rachel</h3><span>$9.75</span></div></div>
+            <div class="gallery-card"><img src="images/IMG_3811.jpeg" alt="Bagel Cream Cheese"><div class="gc-overlay"><h3>Bagel w/ Cream Cheese</h3><span>$4.00</span></div></div>
+            <div class="gallery-card"><img src="images/IMG_3821.jpeg" alt="Rachel"><div class="gc-overlay"><h3>Rachel</h3><span>$9.75</span></div></div>
         </div>
     </section>
 
@@ -881,19 +416,19 @@
             <div class="feat-card wide">
                 <img src="images/IMG_3765.jpeg" alt="Italian Sub">
                 <div class="fc-info">
-                    <div class="fc-price">$5.50+</div>
+                    <div class="fc-price">$9.99</div>
                     <span class="fc-tag">Best Seller</span>
                     <h3>Italian Sub</h3>
-                    <p>Deluxe ham, cappy ham, hard salami, provolone, oil &amp; vinegar, lettuce, tomato, onion</p>
+                    <p>Deluxe ham, cappy ham, hard salami, provolone, oil &amp; vinegar, lettuce, tomato, onion. Half size $5.50</p>
                 </div>
             </div>
             <div class="feat-card">
                 <img src="images/IMG_3807.jpeg" alt="Egg Salad">
                 <div class="fc-info">
-                    <div class="fc-price">$8.25</div>
+                    <div class="fc-price">$9.75</div>
                     <span class="fc-tag">Homemade</span>
-                    <h3>Egg Salad Sandwich</h3>
-                    <p>Classic and creamy on fresh bread</p>
+                    <h3>Create Your Own</h3>
+                    <p>Pick your bread, meat, cheese, and toppings</p>
                 </div>
             </div>
             <div class="feat-card">
@@ -920,7 +455,7 @@
                     <div class="fc-price">$9.99</div>
                     <span class="fc-tag">Hot</span>
                     <h3>Chop Cheese</h3>
-                    <p>Ground beef, American cheese, lettuce, tomato, onion, mayo on a hoagie roll</p>
+                    <p>Ground beef, American cheese, lettuce, tomato, onion, ketchup, mayo on a hoagie roll</p>
                 </div>
             </div>
         </div>
@@ -931,7 +466,7 @@
         <img src="images/IMG_3760.jpeg" alt="Reuben at Brookside Deli">
         <div class="ib-overlay">
             <h2>Stacked High.<br>Made Right.</h2>
-            <p>Every sandwich built to order with premium Boar's Head meats and fresh ingredients.</p>
+            <p>Every sandwich built to order with premium Boar's Head meats and cheeses.</p>
         </div>
     </div>
 
@@ -944,24 +479,24 @@
                 <img src="images/IMG_3809.jpeg" alt="Breakfast Sandwich">
                 <div class="sc-info">
                     <div class="sc-price">$7.00</div>
-                    <h3>Bacon Egg &amp; Cheese</h3>
-                    <p>Fried egg, yellow American cheese on your choice of bread</p>
+                    <h3>Meat Egg &amp; Cheese</h3>
+                    <p>Choice of bacon, sausage, pork roll, or ham with fried egg and yellow American</p>
                 </div>
             </div>
             <div class="showcase-card">
                 <img src="images/IMG_3762.jpeg" alt="Pork Roll Egg Cheese">
                 <div class="sc-info">
-                    <div class="sc-price">$7.00</div>
-                    <h3>Pork Roll Egg &amp; Cheese</h3>
-                    <p>Fried egg, pork roll, yellow American cheese</p>
+                    <div class="sc-price">$5.25</div>
+                    <h3>Egg &amp; Cheese</h3>
+                    <p>Two fried eggs with yellow American cheese on your choice of bread</p>
                 </div>
             </div>
             <div class="showcase-card">
                 <img src="images/IMG_3811.jpeg" alt="Fresh Bagel">
                 <div class="sc-info">
-                    <div class="sc-price">$2.50</div>
-                    <h3>Bagel / Kaiser / English Muffin</h3>
-                    <p>Your choice of fresh bread, toasted to order</p>
+                    <div class="sc-price">$4.00</div>
+                    <h3>Bagel with Cream Cheese</h3>
+                    <p>Fresh bagel, toasted to order. Plain bagel or kaiser $2.50</p>
                 </div>
             </div>
             <div class="showcase-card">
@@ -969,16 +504,16 @@
                 <div class="sc-info">
                     <div class="sc-price">$7.00</div>
                     <h3>Classic BLT</h3>
-                    <p>Crispy bacon, lettuce, tomato, mayo on toast</p>
+                    <p>Crispy bacon, lettuce, tomato, mayo on toast. Add cheese $1.50</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SIDES VISUAL ROW -->
+    <!-- SIDES VISUAL -->
     <section class="sides-visual">
         <div class="section-label">On the Side</div>
-        <h2 class="section-title">Sides &amp; Salads</h2>
+        <h2 class="section-title">Sides &amp; Deli Salads</h2>
         <div class="sides-visual-grid">
             <div class="sv-card">
                 <img src="images/IMG_3810.jpeg" alt="Potato Salad">
@@ -990,7 +525,7 @@
             </div>
             <div class="sv-card">
                 <img src="images/IMG_3807.jpeg" alt="Egg Salad">
-                <div class="sv-info"><h4>Egg Salad</h4><span>$8.25</span></div>
+                <div class="sv-info"><h4>Egg Salad (8 oz)</h4><span>Available</span></div>
             </div>
             <div class="sv-card">
                 <img src="images/IMG_3821.jpeg" alt="Turkey Rachel">
@@ -1009,72 +544,73 @@
             <button class="m-tab" data-tab="cold">Cold Sandwiches</button>
             <button class="m-tab" data-tab="hot">Hot Sandwiches</button>
             <button class="m-tab" data-tab="burgers">Burgers &amp; Cutlets</button>
-            <button class="m-tab" data-tab="salads">Soups &amp; Salads</button>
+            <button class="m-tab" data-tab="salads">Salads</button>
             <button class="m-tab" data-tab="sides">Sides</button>
+            <button class="m-tab" data-tab="create">Create Your Own</button>
+            <button class="m-tab" data-tab="party">Party Trays</button>
         </div>
 
         <!-- BREAKFAST -->
         <div class="m-panel active" id="p-bkfast">
             <div class="m-subheading">Breakfast Sandwiches</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Bacon Egg and Cheese</div><div class="m-desc">Fried egg, yellow American cheese</div></div><div class="m-price">$7.00</div></div>
-                <div class="m-item"><div><div class="m-name">Sausage Egg and Cheese</div><div class="m-desc">Fried egg, sausage, yellow American cheese</div></div><div class="m-price">$7.00</div></div>
-                <div class="m-item"><div><div class="m-name">Pork Roll Egg and Cheese</div><div class="m-desc">Fried egg, pork roll, yellow American cheese</div></div><div class="m-price">$7.00</div></div>
-                <div class="m-item"><div><div class="m-name">Ham Egg and Cheese</div><div class="m-desc">Fried egg, ham, yellow American cheese</div></div><div class="m-price">$7.00</div></div>
-                <div class="m-item"><div><div class="m-name">BYO Breakfast Sandwich</div><div class="m-desc">Build your own from scratch</div></div><div class="m-price">$2.50</div></div>
-                <div class="m-item"><div><div class="m-name">Bagel / Kaiser / English Muffin / Toast</div></div><div class="m-price">$2.50</div></div>
-                <div class="m-item"><div><div class="m-name">Breakfast Platter</div><div class="m-desc">Build your own platter</div></div><div class="m-price">$1.00+</div></div>
+                <div class="m-item"><div><div class="m-name">Meat Egg and Cheese</div><div class="m-desc">Choice of bacon, sausage, pork roll, or ham with fried egg and yellow American cheese</div></div><div class="m-price">$7.00</div></div>
+                <div class="m-item"><div><div class="m-name">Egg and Cheese</div><div class="m-desc">Two fried eggs with yellow American cheese (scrambled or egg whites upon request)</div></div><div class="m-price">$5.25</div></div>
+                <div class="m-item"><div><div class="m-name">Meat and Egg</div><div class="m-desc">Choice of meat with two fried eggs, no cheese</div></div><div class="m-price">$6.25</div></div>
+                <div class="m-item"><div><div class="m-name">Extra Meat</div></div><div class="m-price">$1.75</div></div>
+                <div class="m-item"><div><div class="m-name">Extra Egg</div></div><div class="m-price">$1.00</div></div>
+                <div class="m-item"><div><div class="m-name">Extra Cheese</div></div><div class="m-price">$0.75</div></div>
+                <div class="m-item"><div><div class="m-name">Additional Toppings</div><div class="m-desc">Lettuce, tomato, etc.</div></div><div class="m-price">$0.25 each</div></div>
             </div>
-            <div class="m-subheading">Breakfast Sides</div>
+            <div class="m-subheading">Bread &amp; Bagels</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Bacon</div></div><div class="m-price">$1.75</div></div>
-                <div class="m-item"><div><div class="m-name">Side of Sausage</div></div><div class="m-price">$1.75</div></div>
-                <div class="m-item"><div><div class="m-name">Hash Brown on the Side</div></div><div class="m-price">$1.75</div></div>
+                <div class="m-item"><div><div class="m-name">Bagel or Kaiser</div><div class="m-desc">Choice of bread: bagel, kaiser, English muffin, toast, or wrap</div></div><div class="m-price">$2.50</div></div>
+                <div class="m-item"><div><div class="m-name">With Butter</div></div><div class="m-price">$2.75</div></div>
+                <div class="m-item"><div><div class="m-name">With Cream Cheese</div></div><div class="m-price">$4.00</div></div>
+                <div class="m-item"><div><div class="m-name">Hash Brown Patty</div></div><div class="m-price">$1.75</div></div>
             </div>
         </div>
 
-        <!-- COLD -->
+        <!-- COLD SANDWICHES -->
         <div class="m-panel" id="p-cold">
             <div class="m-subheading">Cold Sandwiches</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Belly Buster</div><div class="m-desc">Extra ovengold turkey, roast beef, American cheese, deli mustard, lettuce, tomato, onions on a hoagie roll</div></div><div class="m-price">$9.99</div></div>
-                <div class="m-item"><div><div class="m-name">BLT</div><div class="m-desc">Bacon, lettuce, tomato, mayo on your choice of toast</div></div><div class="m-price">$7.00</div></div>
-                <div class="m-item"><div><div class="m-name">Buffalo Chicken Blast</div><div class="m-desc">Roasted chicken, pepper jack, lettuce, tomato, onion, bleu cheese, hot sauce on kaiser</div></div><div class="m-price">$9.75</div></div>
-                <div class="m-item"><div><div class="m-name">Chicken Caesar Wrap</div><div class="m-desc">Grilled chicken, Parmesan, lettuce, tomato, Caesar dressing on white or wheat wrap</div></div><div class="m-price">$9.75</div></div>
-                <div class="m-item"><div><div class="m-name">Chicken Salad (Original)</div><div class="m-desc">Chicken, celery, mayonnaise, sour cream, salt/pepper</div></div><div class="m-price">$8.25</div></div>
+                <div class="m-item"><div><div class="m-name">Chicken Caesar Wrap</div><div class="m-desc">Sliced grilled chicken breast, shredded Parmesan, lettuce, tomato, Caesar dressing on white or wheat wrap</div></div><div class="m-price">$9.75</div></div>
+                <div class="m-item"><div><div class="m-name">Italian</div><div class="m-desc">Deluxe ham, cappy ham, hard salami, provolone, oil &amp; vinegar, lettuce, tomato, onion on hoagie. Half size available.</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">Italian (Half)</div><div class="m-desc">Half size portion on hoagie roll</div></div><div class="m-price">$5.50</div></div>
+                <div class="m-item"><div><div class="m-name">Belly Buster</div><div class="m-desc">Extra ovengold turkey, roast beef, American cheese, deli mustard, lettuce, tomato, onions on hoagie</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">BLT</div><div class="m-desc">Bacon, lettuce, tomato, mayo on your choice of toast. Add cheese $1.50, extra bacon $1.75</div></div><div class="m-price">$7.00</div></div>
+                <div class="m-item"><div><div class="m-name">Buffalo Chicken Blast</div><div class="m-desc">Buffalo chicken, pepper jack, lettuce, tomato, onion, bleu cheese and hot sauce on kaiser</div></div><div class="m-price">$9.75</div></div>
+                <div class="m-item"><div><div class="m-name">Chicken Salad (Original)</div><div class="m-desc">Chicken, celery, mayo, sour cream, salt/pepper</div></div><div class="m-price">$8.25</div></div>
                 <div class="m-item"><div><div class="m-name">Chicken Salad w/ Walnuts &amp; Cranberries</div><div class="m-desc">Chicken, celery, mayo, sour cream, walnuts, cranberries</div></div><div class="m-price">$8.25</div></div>
-                <div class="m-item"><div><div class="m-name">Club Sandwich</div><div class="m-desc">Turkey or ham, bacon, mayo, lettuce, tomato on 3 toasted slices</div></div><div class="m-price">$11.50</div></div>
+                <div class="m-item"><div><div class="m-name">Club Sandwich</div><div class="m-desc">Turkey or ham, bacon, mayo, lettuce, tomato on 3 toasted slices. Add cheese $1.00</div></div><div class="m-price">$11.50</div></div>
                 <div class="m-item"><div><div class="m-name">Grilled Margarita</div><div class="m-desc">Fresh mozzarella, tomato, mayo, basil on grilled hoagie</div></div><div class="m-price">$7.00</div></div>
                 <div class="m-item"><div><div class="m-name">Honey Maple Heaven</div><div class="m-desc">Ham or turkey, muenster, bacon, lettuce, tomato, honey mustard on kaiser</div></div><div class="m-price">$11.50</div></div>
-                <div class="m-item"><div><div class="m-name">Italian</div><div class="m-desc">Deluxe ham, cappy ham, hard salami, provolone, oil &amp; vinegar, lettuce, tomato, onion on hoagie</div></div><div class="m-price">$5.50+</div></div>
                 <div class="m-item"><div><div class="m-name">Pepperpot</div><div class="m-desc">Peppermill turkey, pepper jack, peppers, lettuce, tomato, onions, peppercorn mayo on kaiser</div></div><div class="m-price">$9.75</div></div>
                 <div class="m-item"><div><div class="m-name">Rachel</div><div class="m-desc">Pastrami or turkey, Swiss, Russian dressing, coleslaw on rye</div></div><div class="m-price">$9.75</div></div>
                 <div class="m-item"><div><div class="m-name">Rajin Cajun</div><div class="m-desc">Roasted chicken, pepper jack, lettuce, tomato, onion, jalape&ntilde;os, cajun mayo on hoagie</div></div><div class="m-price">$9.75</div></div>
                 <div class="m-item"><div><div class="m-name">Real Beef</div><div class="m-desc">Roast beef, cheddar, lettuce, tomato, onions, horseradish mayo on kaiser</div></div><div class="m-price">$9.75</div></div>
                 <div class="m-item"><div><div class="m-name">Red Roaster</div><div class="m-desc">Roasted chicken, provolone, bacon, lettuce, tomato, onion, roasted red peppers, mayo on hoagie</div></div><div class="m-price">$11.50</div></div>
                 <div class="m-item"><div><div class="m-name">Turkey Roma</div><div class="m-desc">Turkey, mozzarella, roasted red peppers, pesto mayo on wrap</div></div><div class="m-price">$9.75</div></div>
-                <div class="m-item"><div><div class="m-name">Veggie</div><div class="m-desc">Lettuce, tomato, cucumber, roasted red peppers, black olives, red onions</div></div><div class="m-price">$6.00</div></div>
-                <div class="m-item"><div><div class="m-name">Create Your Own</div><div class="m-desc">Build it just the way you like</div></div><div class="m-price">$8.25</div></div>
+                <div class="m-item"><div><div class="m-name">Veggie</div><div class="m-desc">Lettuce, tomato, cucumber, roasted red peppers, black olives, red onions, sweet pepper, olives on bread</div></div><div class="m-price">$6.00</div></div>
             </div>
         </div>
 
-        <!-- HOT -->
+        <!-- HOT SANDWICHES -->
         <div class="m-panel" id="p-hot">
             <div class="m-subheading">Hot Sandwiches</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Balboa</div><div class="m-desc">Roast beef, melted provolone &amp; cheddar on grilled garlic butter hoagie</div></div><div class="m-price">$10.50</div></div>
-                <div class="m-item"><div><div class="m-name">Bernadette</div><div class="m-desc">Peppered turkey, pepper jack, Russian dressing on hoagie</div></div><div class="m-price">$9.75</div></div>
-                <div class="m-item"><div><div class="m-name">Cheesesteak Special</div><div class="m-desc">16 oz steak, cooper sharp cheese, saut&eacute;ed onions on steak roll</div></div><div class="m-price">$13.00</div></div>
-                <div class="m-item"><div><div class="m-name">Chicken Bacon Ranch</div><div class="m-desc">Roasted chicken, American, bacon, lettuce, tomato, ranch on kaiser</div></div><div class="m-price">$11.50</div></div>
-                <div class="m-item"><div><div class="m-name">Chicken Steak</div><div class="m-desc">Full size</div></div><div class="m-price">$9.25</div></div>
-                <div class="m-item"><div><div class="m-name">Chicken Steak (Half)</div><div class="m-desc">Half size portion</div></div><div class="m-price">$4.50</div></div>
-                <div class="m-item"><div><div class="m-name">Chop Cheese</div><div class="m-desc">Ground beef, American, lettuce, tomato, onion, mayo on hoagie</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">Chop Cheese</div><div class="m-desc">Ground beef, American cheese, lettuce, tomato, onion, ketchup, mayo on hoagie</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">Reuben</div><div class="m-desc">Classic corned beef, Swiss, Russian dressing, sauerkraut on rye</div></div><div class="m-price">$9.75</div></div>
+                <div class="m-item"><div><div class="m-name">Hot Pastrami Rachel</div><div class="m-desc">Pastrami or turkey, melted Swiss, Russian dressing, coleslaw on rye</div></div><div class="m-price">$9.75</div></div>
                 <div class="m-item"><div><div class="m-name">Cuban</div><div class="m-desc">Roasted pork, deluxe ham, Swiss, pickles, mustard on grilled hoagie</div></div><div class="m-price">$10.50</div></div>
-                <div class="m-item"><div><div class="m-name">Grilled Cheese</div><div class="m-desc">Classic comfort</div></div><div class="m-price">$5.00</div></div>
-                <div class="m-item"><div><div class="m-name">Hot Rachel</div><div class="m-desc">Pastrami or turkey, melted Swiss, Russian dressing, coleslaw on rye</div></div><div class="m-price">$9.75</div></div>
-                <div class="m-item"><div><div class="m-name">Reuben</div><div class="m-desc">Corned beef, Swiss, Russian dressing, sauerkraut on rye</div></div><div class="m-price">$9.75</div></div>
-                <div class="m-item"><div><div class="m-name">Steak Sandwich</div><div class="m-desc">Full size</div></div><div class="m-price">$9.25</div></div>
-                <div class="m-item"><div><div class="m-name">Steak Sandwich (Half)</div><div class="m-desc">Half size portion</div></div><div class="m-price">$4.50</div></div>
+                <div class="m-item"><div><div class="m-name">Balboa</div><div class="m-desc">Extra roast beef w/ melted provolone and cheddar on grilled garlic butter hoagie</div></div><div class="m-price">$10.50</div></div>
+                <div class="m-item"><div><div class="m-name">Steak Sandwich</div><div class="m-desc">w/ cheese $10.99. Sauce, onions and hot peppers available.</div></div><div class="m-price">$9.25</div></div>
+                <div class="m-item"><div><div class="m-name">Chicken Steak</div><div class="m-desc">w/ cheese $10.99. Plain or buffalo (blue cheese and hot sauce).</div></div><div class="m-price">$9.25</div></div>
+                <div class="m-item"><div><div class="m-name">Cheesesteak Special</div><div class="m-desc">16 oz steak, cooper sharp cheese, saut&eacute;ed onions on steak roll</div></div><div class="m-price">$13.00</div></div>
+                <div class="m-item"><div><div class="m-name">Chicken Bacon Ranch</div><div class="m-desc">Roasted chicken, American cheese, bacon, shredded lettuce, tomato, ranch on kaiser</div></div><div class="m-price">$11.50</div></div>
+                <div class="m-item"><div><div class="m-name">Bernadette</div><div class="m-desc">Grilled peppered turkey, pepper jack, Russian dressing on hoagie</div></div><div class="m-price">$9.75</div></div>
+                <div class="m-item"><div><div class="m-name">Grilled Cheese</div><div class="m-desc">Classic comfort. With ham or bacon $6.75</div></div><div class="m-price">$5.00</div></div>
             </div>
         </div>
 
@@ -1082,25 +618,25 @@
         <div class="m-panel" id="p-burgers">
             <div class="m-subheading">Burgers</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Burger (Create Your Own)</div><div class="m-desc">Build your perfect burger</div></div><div class="m-price">$7.50</div></div>
+                <div class="m-item"><div><div class="m-name">Burger (Create Your Own)</div><div class="m-desc">Build your perfect burger. With cheese $9.00</div></div><div class="m-price">$7.50</div></div>
                 <div class="m-item"><div><div class="m-name">BBQ Bacon Burger</div><div class="m-desc">Cheddar, bacon, BBQ sauce, lettuce, tomato</div></div><div class="m-price">$10.75</div></div>
-                <div class="m-item"><div><div class="m-name">South by Southwest</div><div class="m-desc">Fried jalape&ntilde;os, pepper jack, chipotle mayo, crispy onion fries</div></div><div class="m-price">$9.50</div></div>
+                <div class="m-item"><div><div class="m-name">South by Southwest</div><div class="m-desc">Fried jalape&ntilde;os, pepper jack, chipotle mayo, pulled pork, crispy onion fries</div></div><div class="m-price">$9.50</div></div>
             </div>
-            <div class="m-subheading">Cutlets</div>
+            <div class="m-subheading">Chicken Cutlets</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Chicken Parm</div><div class="m-desc">Chicken cutlet, marinara, mozzarella</div></div><div class="m-price">$9.99</div></div>
-                <div class="m-item"><div><div class="m-name">California Cutlet</div><div class="m-desc">Lettuce, tomato, mayo, American cheese</div></div><div class="m-price">$9.99</div></div>
-                <div class="m-item"><div><div class="m-name">Buffalo Chicken Cutlet Wrap</div><div class="m-desc">Cheddar, blue cheese, shredded lettuce</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">Chicken Parmesan</div><div class="m-desc">Chicken cutlet, marinara, mozzarella</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">California Cutlet</div><div class="m-desc">Lettuce, tomato, mayo</div></div><div class="m-price">$9.99</div></div>
+                <div class="m-item"><div><div class="m-name">Buffalo Chicken Wrap</div><div class="m-desc">Cheddar cheese, blue cheese, shredded lettuce</div></div><div class="m-price">$9.99</div></div>
             </div>
         </div>
 
-        <!-- SOUPS & SALADS -->
+        <!-- SALADS -->
         <div class="m-panel" id="p-salads">
-            <div class="m-subheading">Soups &amp; Salads</div>
+            <div class="m-subheading">Salads</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Chicken Caesar Salad</div><div class="m-desc">Lettuce, croutons, Caesar dressing, Parmesan</div></div><div class="m-price">$10.00</div></div>
-                <div class="m-item"><div><div class="m-name">Chef Salad</div><div class="m-desc">Lettuce, tomato, cucumber, provolone, ham, turkey, egg salad</div></div><div class="m-price">$10.00</div></div>
-                <div class="m-item"><div><div class="m-name">Greek Salad</div><div class="m-desc">Lettuce, tomato, black olives, cucumber, feta, roasted red peppers</div></div><div class="m-price">$10.00</div></div>
+                <div class="m-item"><div><div class="m-name">Chicken Caesar Salad</div><div class="m-desc">Lettuce, croutons, Caesar dressing, Parmesan. With chicken $12</div></div><div class="m-price">$10.00</div></div>
+                <div class="m-item"><div><div class="m-name">Chef Salad</div><div class="m-desc">Turkey, ham, provolone, tomato, cucumber, egg salad</div></div><div class="m-price">$11.00</div></div>
+                <div class="m-item"><div><div class="m-name">Greek Salad</div><div class="m-desc">Lettuce, tomato, black olives, cucumber, feta, kalamata olives, roasted red peppers</div></div><div class="m-price">$10.00</div></div>
             </div>
         </div>
 
@@ -1109,21 +645,45 @@
             <div class="m-subheading">Hot Sides</div>
             <div class="m-grid">
                 <div class="m-item"><div><div class="m-name">French Fries</div></div><div class="m-price">$3.00</div></div>
-                <div class="m-item"><div><div class="m-name">Pierogies (3)</div></div><div class="m-price">$4.00</div></div>
                 <div class="m-item"><div><div class="m-name">Waffle Fries</div></div><div class="m-price">$3.50</div></div>
-                <div class="m-item"><div><div class="m-name">Hash Brown</div></div><div class="m-price">$1.75</div></div>
-                <div class="m-item"><div><div class="m-name">Mozzarella Sticks (3)</div></div><div class="m-price">$4.00</div></div>
                 <div class="m-item"><div><div class="m-name">Onion Rings</div></div><div class="m-price">$4.25</div></div>
-                <div class="m-item"><div><div class="m-name">Chicken Bites</div></div><div class="m-price">$5.00</div></div>
+                <div class="m-item"><div><div class="m-name">Pierogies (3)</div></div><div class="m-price">$4.00</div></div>
+                <div class="m-item"><div><div class="m-name">Mozzarella Sticks (3)</div></div><div class="m-price">$4.00</div></div>
             </div>
             <div class="m-subheading">Deli Salads (8 oz)</div>
             <div class="m-grid">
-                <div class="m-item"><div><div class="m-name">Tuna Salad</div></div><div class="m-price">$5.50</div></div>
-                <div class="m-item"><div><div class="m-name">Macaroni Salad</div></div><div class="m-price">$4.00</div></div>
-                <div class="m-item"><div><div class="m-name">CWC Chicken Salad</div><div class="m-desc">With cranberries and walnuts</div></div><div class="m-price">$6.00</div></div>
-                <div class="m-item"><div><div class="m-name">Potato Salad</div></div><div class="m-price">$4.00</div></div>
-                <div class="m-item"><div><div class="m-name">Coleslaw</div></div><div class="m-price">$4.00</div></div>
                 <div class="m-item"><div><div class="m-name">Chicken Salad</div></div><div class="m-price">$6.00</div></div>
+                <div class="m-item"><div><div class="m-name">Cranberry Walnut Chicken Salad</div></div><div class="m-price">$6.00</div></div>
+                <div class="m-item"><div><div class="m-name">Tuna Salad</div></div><div class="m-price">$5.50</div></div>
+                <div class="m-item"><div><div class="m-name">Egg Salad</div></div><div class="m-price">Available</div></div>
+                <div class="m-item"><div><div class="m-name">Potato Salad</div></div><div class="m-price">$4.00</div></div>
+                <div class="m-item"><div><div class="m-name">Macaroni Salad</div></div><div class="m-price">$4.00</div></div>
+                <div class="m-item"><div><div class="m-name">Coleslaw</div></div><div class="m-price">$4.00</div></div>
+            </div>
+        </div>
+
+        <!-- CREATE YOUR OWN -->
+        <div class="m-panel" id="p-create">
+            <div class="m-subheading">Create Your Own &nbsp;$9.75</div>
+            <div class="m-desc" style="margin-bottom:1.5rem; padding: 0 1.2rem; color: var(--muted);">No cheese $8.25 &nbsp;&bull;&nbsp; Extra meat $2.00. Hoagie rolls only for cold sandwiches.</div>
+            <div class="m-grid">
+                <div class="m-item"><div><div class="m-name">Bread</div><div class="m-desc">White, wheat, rye, kaiser roll, white or wheat wrap, hoagie roll</div></div><div class="m-price"></div></div>
+                <div class="m-item"><div><div class="m-name">Boar's Head Meats</div><div class="m-desc">Deluxe ham, cracked pepper turkey, roasted chicken, cappy ham, corned beef, roasted turkey, pastrami, hard salami, grilled chicken, chicken cutlet + $1.00</div></div><div class="m-price"></div></div>
+                <div class="m-item"><div><div class="m-name">Cheese</div><div class="m-desc">American (w/y), provolone (lower sodium), Swiss, muenster, feta, pepper jack, fresh mozzarella, cheddar. Extra cheese $1.50</div></div><div class="m-price"></div></div>
+                <div class="m-item"><div><div class="m-name">Toppings</div><div class="m-desc">Leaf lettuce, shredded lettuce, tomato, black olives, pickles, hot/sweet peppers, jalape&ntilde;o peppers, roasted red pepper, cucumber, bacon $1.50, onion, salt/pepper, oregano</div></div><div class="m-price"></div></div>
+                <div class="m-item"><div><div class="m-name">Dressings</div><div class="m-desc">Mayo, spicy mustard, yellow mustard, honey mustard, deli dressing, horseradish mayo, peppercorn mayo, Russian, blue cheese, Caesar, ranch, hot sauce, cajun mayo, chipotle mayo</div></div><div class="m-price"></div></div>
+                <div class="m-item"><div><div class="m-name">Store Made</div><div class="m-desc">Chicken salad, cranberry walnut chicken salad, roast beef, tuna salad, egg salad, grilled chicken, burger</div></div><div class="m-price"></div></div>
+            </div>
+        </div>
+
+        <!-- PARTY TRAYS -->
+        <div class="m-panel" id="p-party">
+            <div class="m-subheading">Party Trays</div>
+            <div class="m-desc" style="margin-bottom:1.5rem; padding: 0 1.2rem; color: var(--muted);">A variety of our delicious hoagies or wraps, cut into thirds, with lettuce and tomatoes. Suggested: ham, Swiss, spicy mustard, roast beef, cheddar, horseradish, turkey, provolone, mayo. Substitutions may add additional charge.</div>
+            <div class="m-grid">
+                <div class="m-item"><div><div class="m-name">Small</div><div class="m-desc">6 sandwiches (cut in thirds) &nbsp;&bull;&nbsp; Feeds 6 to 10</div></div><div class="m-price">$52.00</div></div>
+                <div class="m-item"><div><div class="m-name">Medium</div><div class="m-desc">10 sandwiches (cut in thirds) &nbsp;&bull;&nbsp; Feeds 10 to 18</div></div><div class="m-price">$88.00</div></div>
+                <div class="m-item"><div><div class="m-name">Large</div><div class="m-desc">14 sandwiches (cut in thirds) &nbsp;&bull;&nbsp; Feeds 14 to 25</div></div><div class="m-price">$123.00</div></div>
             </div>
         </div>
     </section>
@@ -1136,7 +696,7 @@
         <div class="about-content">
             <div class="ac-label">Visit Us</div>
             <h2>Your Neighborhood Deli Since Day One</h2>
-            <p>We're not just a deli, we're part of the Macungie community. Every sandwich is made to order, every salad is prepared fresh daily, and every customer walks out with a full stomach and a smile.</p>
+            <p>We're not just a deli, we're part of the Macungie community. Every sandwich is made to order with Boar's Head meats and cheeses, every salad is prepared fresh daily, and every customer walks out with a full stomach and a smile.</p>
             <div class="info-pills">
                 <div class="info-pill">
                     <div class="pill-icon">&#x1F4CD;</div>
@@ -1144,7 +704,7 @@
                 </div>
                 <div class="info-pill">
                     <div class="pill-icon">&#x1F552;</div>
-                    <span>Open daily until 3:00 PM</span>
+                    <span>Mon&ndash;Fri 6am&ndash;3pm &nbsp;&bull;&nbsp; Sat 6:30am&ndash;3pm</span>
                 </div>
                 <div class="info-pill">
                     <div class="pill-icon">&#x1F698;</div>
@@ -1162,16 +722,16 @@
     <footer class="site-footer">
         <div class="footer-brand">Brookside Deli</div>
         <div class="footer-addr">1915 Brookside Rd, Macungie, PA 18062</div>
+        <div class="footer-hours">Mon&ndash;Fri 6am&ndash;3pm &nbsp;&bull;&nbsp; Saturday 6:30am&ndash;3pm</div>
         <a href="tel:6103511392" class="footer-phone">(610) 351-1392</a>
-        <div class="footer-copy">&copy; 2025 Brookside Deli. All rights reserved.</div>
+        <div class="footer-boars">Proudly featuring Boar's Head meats &amp; cheeses</div>
+        <div class="footer-copy">&copy; 2025 Brookside Deli &amp; Catering. All rights reserved.</div>
     </footer>
 
     <script>
         // Nav scroll effect
         const nav = document.getElementById('siteNav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', scrollY > 80);
-        });
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 80); });
 
         // Menu tabs
         document.querySelectorAll('.m-tab').forEach(tab => {
@@ -1183,7 +743,7 @@
             });
         });
 
-        // Intersection observer for fade-in
+        // Fade-in observer
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
